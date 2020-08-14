@@ -14,10 +14,6 @@
     <name>demo</name>
     <description>Demo project for Slack interface</description>
 
-    <properties>
-        <java.version>11</java.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
