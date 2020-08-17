@@ -1,6 +1,7 @@
 package com.prime.service.slack.demo;
 
 import com.prime.service.slack.demo.service.Attachment;
+import com.prime.service.slack.demo.service.SlackRequest;
 import com.prime.service.slack.demo.service.SlackResponse;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
@@ -12,20 +13,12 @@ import reactor.core.publisher.Mono;
 public class Demo {
 
    @PostMapping(consumes = "application/x-www-form-urlencoded")
-   public Mono<SlackResponse> processor(@RequestParam(value = "team_id", required = false) String teamId,
-                                 @RequestParam(value = "team_domain", required = false) String teamDomain,
-                                 @RequestParam(value = "channel_id", required = false) String channelId,
-                                 @RequestParam(value = "channel_name",required = false) String channelName,
-                                 @RequestParam(value = "user_id", required = false) String userId,
-                                 @RequestParam(value = "user_name", required = false) String userName,
-                                 @RequestParam(value = "command", required = false) String command,
-                                 @RequestParam(value = "text", required = false) String text,
-                                 @RequestParam(value = "response_url", required = false) String responseUrl){
+   public Mono<SlackResponse> processor(@RequestParam(value = "team_id", required = false) SlackRequest slackRequest){
 
       String  responseText = "no text available";
 
-      if (text != null) {
-         responseText = text;
+      if (slackRequest.getText() != null) {
+         responseText = slackRequest.getText();
       }
 
       SlackResponse response = new SlackResponse();
