@@ -25,11 +25,11 @@ public class Demo {
             Attachment attachment2 = new Attachment();
             attachment2.setText("*White House* https://en.wikipedia.org/wiki/White_House");
             attachment2.setColor("#01837E");
-            response.getAttachments().add(attachment);
+            response.getAttachments().add(attachment2);
             Attachment attachment3 = new Attachment();
             attachment3.setText("*Ernest & Young* https://en.wikipedia.org/wiki/Ernst_%26_Young");
             attachment3.setColor("#01837E");
-            response.getAttachments().add(attachment);
+            response.getAttachments().add(attachment3);
             return Mono.just(response);
          } else if (slackRequest.getText().equals("Trump | Hearthstone | Blizzard")) {
             response.setText("Found following disambiguation");
@@ -40,11 +40,11 @@ public class Demo {
             Attachment attachment2 = new Attachment();
             attachment2.setText("*Hearthstone* https://en.wikipedia.org/wiki/Hearthstone");
             attachment2.setColor("#01837E");
-            response.getAttachments().add(attachment);
+            response.getAttachments().add(attachment2);
             Attachment attachment3 = new Attachment();
             attachment3.setText("*Blizzard Entertainment* https://en.wikipedia.org/wiki/Blizzard_Entertainment");
             attachment3.setColor("#01837E");
-            response.getAttachments().add(attachment);
+            response.getAttachments().add(attachment3);
             return Mono.just(response);
          }
       }
