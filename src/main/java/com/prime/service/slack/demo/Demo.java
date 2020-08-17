@@ -12,15 +12,7 @@ import reactor.core.publisher.Mono;
 public class Demo {
 
    @PostMapping
-   public Mono<SlackResponse> processor(@RequestParam("team_id") String teamId,
-                                 @RequestParam("team_domain") String teamDomain,
-                                 @RequestParam("channel_id") String channelId,
-                                 @RequestParam("channel_name") String channelName,
-                                 @RequestParam("user_id") String userId,
-                                 @RequestParam("user_name") String userName,
-                                 @RequestParam("command") String command,
-                                 @RequestParam("text") String text,
-                                 @RequestParam("response_url") String responseUrl){
+   public Mono<SlackResponse> processor(){
 
 
       SlackResponse response = new SlackResponse();
