@@ -6,19 +6,17 @@ import com.prime.service.slack.demo.service.SlackResponse;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
-import java.util.Map;
-
 @RestController
 @RequestMapping("/slack/slash")
 public class Demo {
 
    @PostMapping(consumes = "application/x-www-form-urlencoded")
-   public Mono<SlackResponse> processor(@RequestParam(required = false) Map<String, String> params){
+   public Mono<SlackResponse> processor(@ModelAttribute SlackRequest slackRequest){
 
       String  responseText = "no text available";
 
-      if (params.get("text") != null) {
-         responseText = params.get("text");
+      if (slackRequest.getText() != null) {
+         responseText = slackRequest.getText();
       }
 
       SlackResponse response = new SlackResponse();
