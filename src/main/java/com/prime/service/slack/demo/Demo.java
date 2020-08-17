@@ -29,7 +29,7 @@ public class Demo {
       }
 
       SlackResponse response = new SlackResponse();
-      response.setText( text );
+      response.setText( responseText );
       response.setResponseType("in_channel");
 
       Attachment attachment = new Attachment();
