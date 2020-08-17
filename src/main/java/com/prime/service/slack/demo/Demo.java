@@ -11,7 +11,7 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/slack/slash")
 public class Demo {
 
-   @PostMapping
+   @PostMapping(consumes = "application/x-www-form-urlencoded")
    public Mono<SlackResponse> processor(@RequestParam(value = "team_id", required = false) String teamId,
                                  @RequestParam(value = "team_domain", required = false) String teamDomain,
                                  @RequestParam(value = "channel_id", required = false) String channelId,
