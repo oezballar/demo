@@ -3,22 +3,22 @@ package com.prime.service.slack.demo;
 import com.prime.service.slack.demo.service.Attachment;
 import com.prime.service.slack.demo.service.SlackRequest;
 import com.prime.service.slack.demo.service.SlackResponse;
-import org.springframework.context.annotation.Bean;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/slack/slash")
 public class Demo {
 
    @PostMapping(consumes = "application/x-www-form-urlencoded")
-   public Mono<SlackResponse> processor(@RequestParam(value = "team_id", required = false) SlackRequest slackRequest){
+   public Mono<SlackResponse> processor(@RequestParam(required = false) Map<String, String> params){
 
       String  responseText = "no text available";
 
-      if (slackRequest.getText() != null) {
-         responseText = slackRequest.getText();
+      if (params.get("text") != null) {
+         responseText = params.get("text");
       }
 
       SlackResponse response = new SlackResponse();
