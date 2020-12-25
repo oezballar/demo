@@ -4,6 +4,13 @@ public class SlackRequest {
 
    private String teamId;
    private String teamDomain;
+   private String channelId;
+   private String channelName;
+   private String userId;
+   private String userName;
+   private String command;
+   private String text;
+   private String responseUrl;
 
    public String getTeamId() {
       return teamId;
@@ -76,13 +83,5 @@ public class SlackRequest {
    public void setResponseUrl(String responseUrl) {
       this.responseUrl = responseUrl;
    }
-
-   private String channelId;
-   private String channelName;
-   private String userId;
-   private String userName;
-   private String command;
-   private String text;
-   private String responseUrl;
 
 }
